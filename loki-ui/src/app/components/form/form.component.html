@@ -1,0 +1,64 @@
+<form [formGroup]="dynamicForm">
+    <ng-container *ngTemplateOutlet="componentRender; context:{formData: formData}"></ng-container>
+
+    <!-- Main template to render all the form components along with layout -->
+    <ng-template #componentRender let-formData="formData">
+        <div *ngFor="let component of formData.components">
+            <ng-container *ngIf="component.columns">
+                <div class="p-grid" formGroupName="{{component.groupName}}">
+                    <ng-container *ngFor="let column of component.columns">
+                        <div class="p-col">
+                            <mat-card class="mat-elevation-z8">
+                                <div class="form-container">
+                                    <ng-container *ngFor="let component of column.components">
+                                        <ng-container *ngIf="component.columns">
+                                            <ng-container *ngTemplateOutlet="innerForm; context:{component: component}">
+                                            </ng-container>
+                                        </ng-container>
+                                        <ng-container *ngIf="!component.columns">
+                                            <ng-container *ngTemplateOutlet="form; context:{component: component}">
+                                            </ng-container>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </ng-template>
+
+    <!--Purpose of this template to generate the innerforms layout-->
+    <ng-template #innerForm let-component="component">
+        <div class="p-grid">
+            <div class="p-col" *ngFor="let column of component.columns">
+                <div class="form-container">
+                    <ng-container *ngFor="let component of column.components">
+                        <ng-container *ngTemplateOutlet="form; context:{component: component}"></ng-container>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Purpose of this template to generate form components-->
+    <ng-template #form let-component="component">
+        <ng-container *ngIf="component.type==='textfield'">
+            <ng-container *ngTemplateOutlet="textInput; context:{component: component}">
+            </ng-container>
+        </ng-container>
+    </ng-template>
+
+    <!-- Purpose of this template to generate textInput component-->
+    <ng-template #textInput let-component="component">
+        <mat-form-field appearance="outline">
+            <mat-label>{{component.label}}</mat-label>
+            <input matInput placeholder="{{component.label}}" formControlName="firstName" required>
+            <input *ngIf="!component.validate.required" matInput placeholder="{{component.label}}"
+                formControlName="{{component.formControlName}}">
+            <mat-error *ngIf="getCondition(component.groupName, 'required')">You must enter a value
+            </mat-error>
+        </mat-form-field>
+    </ng-template>
+</form>

@@ -1,0 +1,60 @@
+{
+    "content": [
+        {
+            "id": 2,
+            "status": "A",
+            "firstName": "palmurugan",
+            "lastName": "murugan",
+            "company": "string",
+            "email": "palmurugan.c@gmail.com",
+            "phone": "9944111436",
+            "type": 1,
+            "customerDetail": {
+                "id": 3,
+                "status": "A",
+                "taxPreference": "TI",
+                "currency": null,
+                "tin": "TIN1234",
+                "gstin": "12345",
+                "pan": "12345",
+                "creditLimit": 12900,
+                "billCreditLimit": 12000,
+                "paymentTerms": "2",
+                "billType": null,
+                "billingPeriod": null
+            },
+            "customerGroup": {
+                "id": 1,
+                "status": "A",
+                "clientId": 1,
+                "name": "group1",
+                "type": 0
+            }
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "offset": 0,
+        "pageNumber": 0,
+        "pageSize": 20,
+        "unpaged": false,
+        "paged": true
+    },
+    "totalElements": 1,
+    "last": true,
+    "totalPages": 1,
+    "size": 20,
+    "number": 0,
+    "sort": {
+        "sorted": false,
+        "unsorted": true,
+        "empty": true
+    },
+    "numberOfElements": 1,
+    "first": true,
+    "empty": false
+}

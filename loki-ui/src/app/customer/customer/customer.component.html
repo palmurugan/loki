@@ -1,0 +1,237 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <mat-card class="mat-elevation-z8">
+            <mdb-breadcrumb customClass="black-text white">
+                <mdb-breadcrumb-item class="blue-text">Home</mdb-breadcrumb-item>
+                <mdb-breadcrumb-item class="blue-text">Customer</mdb-breadcrumb-item>
+                <mdb-breadcrumb-item class="active">Create</mdb-breadcrumb-item>
+            </mdb-breadcrumb>
+        </mat-card>
+    </div>
+</div>
+<form [formGroup]="customerForm">
+    <div class="p-grid">
+        <div class="p-col-6">
+            <mat-card class="mat-elevation-z8">
+                <p-fieldset legend="Customer Personal Details">
+                    <div class="ui-fluid">
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="form-container">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>First Name</mat-label>
+                                        <input matInput placeholder="First Name" formControlName="firstName" required>
+                                        <mat-error *ngIf="cf.firstName.invalid">You must enter a value</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Last Name</mat-label>
+                                        <input matInput placeholder="Last Name" formControlName="lastName" required>
+                                        <mat-error *ngIf="cf.lastName.invalid">You must enter a value</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Phone</mat-label>
+                                        <input matInput placeholder="Phone" formControlName="phone" required>
+                                        <mat-error *ngIf="cf.phone.invalid">You must enter a value</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="form-container">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Company</mat-label>
+                                        <input matInput placeholder="Company" formControlName="company" required>
+                                        <mat-error *ngIf="cf.company.invalid">You must enter a value</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Email</mat-label>
+                                        <input matInput placeholder="Email" formControlName="email" required>
+                                        <mat-error *ngIf="cf.email.invalid">You must enter a value</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Customer Category</mat-label>
+                                        <mat-select required formControlName="customerCategory">
+                                            <mat-option *ngFor="let category of customerCategories"
+                                                [value]="category.id">
+                                                {{category.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="cf.customerCategory.invalid">You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-fieldset>
+            </mat-card>
+        </div>
+        <div class="p-col-6" formGroupName="customerContact">
+            <mat-card class="mat-elevation-z8">
+                <p-fieldset legend="Customer Contact Details">
+                    <div class="ui-fluid">
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="form-container">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Address1</mat-label>
+                                        <input matInput placeholder="Address1" formControlName="address1" required>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerContact').get('address1').hasError('required')">
+                                            You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Address2</mat-label>
+                                        <input matInput placeholder="Address2" formControlName="address2">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>City</mat-label>
+                                        <input matInput placeholder="City" formControlName="city" required>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerContact').get('city').hasError('required')">
+                                            You must enter a value</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class=" ui-g-12 ui-md-6">
+                                <div class="form-container">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Country</mat-label>
+                                        <mat-select required formControlName="country">
+                                            <mat-option *ngFor="let country of countries" [value]="country.code">
+                                                {{country.description}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerContact').get('country').hasError('required')">
+                                            You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>State</mat-label>
+                                        <mat-select required formControlName="state">
+                                            <mat-option *ngFor="let state of states" [value]="state.code">
+                                                {{state.description}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerContact').get('state').hasError('required')">
+                                            You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Zip</mat-label>
+                                        <input matInput placeholder="Zip" formControlName="zip" required>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerContact').get('zip').hasError('required')">
+                                            You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-fieldset>
+            </mat-card>
+        </div>
+    </div>
+    <div class="p-grid" formGroupName="customerDetail">
+        <div class="p-col-12">
+            <mat-card class="mat-elevation-z8">
+                <p-fieldset legend="Customer Billing Details">
+                    <div class="ui-fluid">
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="form-container">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>TIN Number</mat-label>
+                                        <input matInput placeholder="TIN Number" formControlName="tin">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>GSTIN</mat-label>
+                                        <input matInput placeholder="GSTIN" formControlName="gstin">
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Currency</mat-label>
+                                        <mat-select required formControlName="currency">
+                                            <mat-option *ngFor="let currencyCode of currencies"
+                                                [value]="currencyCode.code"> {{currencyCode.description}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerDetail').get('currency').hasError('required')">
+                                            You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>PAN</mat-label>
+                                        <input matInput placeholder="PAN" formControlName="pan">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-6">
+                                <div class="form-container">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Billing Type</mat-label>
+                                        <mat-select required formControlName="billingType">
+                                            <mat-option *ngFor="let billing_type of billing_types"
+                                                [value]="billing_type.code">
+                                                {{billing_type.description}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerDetail').get('billingType').hasError('required')">
+                                            You must enter a value</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Billing Period</mat-label>
+                                        <mat-select required formControlName="billingPeriod">
+                                            <mat-option *ngFor="let billing_period of billing_periods"
+                                                [value]="billing_period.code">
+                                                {{billing_period.description}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerDetail').get('billingPeriod').hasError('required')">
+                                            You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Bill Credit Limit</mat-label>
+                                        <input matInput placeholder="Bill Credit Limit" type="number"
+                                            formControlName="billCreditLimit" required>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerDetail').get('billCreditLimit').hasError('required')">
+                                            You must enter a value
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Credit Limit</mat-label>
+                                        <input matInput placeholder="Credit Limit" formControlName="creditLimit"
+                                            required>
+                                        <mat-error
+                                            *ngIf="customerForm.get('customerDetail').get('creditLimit').hasError('required')">
+                                            You must enter a value</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p-fieldset>
+
+                <div class="ui-fluid">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-6 ui-lg-10"></div>
+                        <div class="ui-g-12 ui-md-6 ui-lg-1">
+                            <button mat-raised-button class="btn-100" (click)="cancel()">Cancel</button>
+                        </div>
+                        <div class="ui-g-12 ui-md-6 ui-lg-1">
+                            <button mat-raised-button color="primary" class="btn-100" (click)="save()"
+                                [disabled]="!customerForm.valid">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</form>

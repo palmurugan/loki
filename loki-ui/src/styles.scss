@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif !important;
+    line-height: 1.15 !important;
+    -webkit-text-size-adjust: 100% !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+}
+
+/** Header Menu **/
+.navbar {
+    height: 45px !important;
+}
+
+/** Footer Styles **/
+footer.page-footer {
+    height: 35px;
+}
+
+.pt-3, .py-3 {
+    padding-top: 8px !important;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+/** Flex Grid CSS changes */
+.p-grid {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+/** Legend fieldset **/
+legend {
+    font-size: 13px !important;
+    font-weight: bold !important;
+}
+
+.ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+    padding: 0px 4px !important;
+}
+
+/** UI Card */
+.ui-card-body {
+    padding: 9px !important;
+}
+
+/** Breadcrump **/
+.breadcrumb {
+    /*padding: 6px 6px 4px 15px !important;*/
+    padding: 0px 0px 0px 0px !important;
+    margin-bottom: 5px !important;
+}
+
+/** UI Widget font size */
+body .ui-widget {
+    font-size: 13px !important;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #16181b;
+    background-color: #007bff !important;
+}
+
+/** Navbar  */
+.navbar .dropdown-menu a {
+    padding: 7px !important;
+    font-size: 13px !important;
+}
+
+/** Mat Card */
+.mat-card {
+    padding: 12px !important;
+}
+
+.mat-table {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif !important;
+}
+
+tr.mat-footer-row, tr.mat-row {
+    height: 42px !important;
+}
+
+tr.mat-header-row {
+    height: 45px !important;
+}
+
+.mat-header-cell {
+    color: #000;
+    font-weight: bold !important;
+}
+
+.mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+    background-color: #0d47a1 !important;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/** Material Forms */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 10px 0 10px 0;
+}
+
+.form-container > * {
+    width: 100% !important;
+}
+
+.btn-100 {
+    width: 100%;
+}

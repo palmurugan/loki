@@ -1,0 +1,26 @@
+{
+  "firstName": "Pal",
+  "lastName": "Murugan",
+  "phone": "9944111436",
+  "company": "A1Test",
+  "email": "palmurugan.c@gmail.com",
+  "customerCategory": 1,
+  "customerContact": {
+    "address1": "Address1",
+    "city": "Kanyakumari",
+    "country": "IN",
+    "state": "KL",
+    "zip": "627127",
+    "address2": "Address2"
+  },
+  "customerDetail": {
+    "currency": "INR",
+    "billingType": "PREPAID",
+    "billingPeriod": "15D",
+    "billCreditLimit": 12000,
+    "creditLimit": 25000,
+    "tin": "TIN123456",
+    "gstin": "GST123456",
+    "pan": "PAN1234567"
+  }
+}
