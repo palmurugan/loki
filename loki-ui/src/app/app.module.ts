@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 /** Application Modules */
 import { CustomerModule } from './customer/customer.module';
+import { BillingModule } from './billing/billing.module';
 
 /* Third party modules */
 import { PrimeNgModule } from './primeng.module';
@@ -36,6 +37,7 @@ import { TestComponent } from './components/test/test.component';
     PrimeNgModule,
     MDBBootstrapModule.forRoot(),
     CustomerModule,
+    BillingModule,
     FormsModule,
     MaterialModule,
     ReactiveFormsModule

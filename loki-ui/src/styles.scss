@@ -109,6 +109,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
 }
 
+.mat-form-field {
+    width: 100%;
+}
+
 .mat-form-field-appearance-outline .mat-form-field-infix {
     padding: 10px 0 10px 0;
 }
