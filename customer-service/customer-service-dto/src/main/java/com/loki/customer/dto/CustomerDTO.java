@@ -30,6 +30,8 @@ public class CustomerDTO extends BaseDTO {
     private CustomerDetailsDTO customerDetail;
 
     private CustomerGroupDTO customerGroup;
+
+    private CustomerContactDTO customerContact;
     
     public String getFirstName() {
         return firstName;
@@ -95,17 +97,11 @@ public class CustomerDTO extends BaseDTO {
         this.customerGroup = customerGroup;
     }
 
-    @Override
-    public String toString() {
-        return "CustomerDTO{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", company='" + company + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", type=" + type +
-                ", customerDetail=" + customerDetail +
-                ", customerGroup=" + customerGroup +
-                '}';
+    public CustomerContactDTO getCustomerContact() {
+        return customerContact;
+    }
+
+    public void setCustomerContact(CustomerContactDTO customerContact) {
+        this.customerContact = customerContact;
     }
 }

@@ -30,6 +30,10 @@ public class CustomerEntity extends BaseEntity {
     @JoinColumn(name = "customer_detail_id")
     private CustomerDetailsEntity customerDetail;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_contact_id")
+    private CustomerContactEntity customerContact;
+
     @OneToOne
     @JoinColumn(name = "customer_group_id")
     private CustomerGroupEntity customerGroup;
@@ -96,5 +100,13 @@ public class CustomerEntity extends BaseEntity {
 
     public void setCustomerGroup(CustomerGroupEntity customerGroup) {
         this.customerGroup = customerGroup;
+    }
+
+    public CustomerContactEntity getCustomerContact() {
+        return customerContact;
+    }
+
+    public void setCustomerContact(CustomerContactEntity customerContact) {
+        this.customerContact = customerContact;
     }
 }

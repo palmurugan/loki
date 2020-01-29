@@ -12,10 +12,10 @@ import javax.inject.Inject;
 @RequestMapping(value = "/customers")
 public class CustomerResource extends BaseRestResource<CustomerDTO, Long> {
 
-    private CustomerService service;
+    private CustomerService customerService;
 
     @Inject
-    public CustomerResource(CustomerService service) {
-        super(service);
+    public CustomerResource(CustomerService customerService) {
+        super(customerService);
     }
 }

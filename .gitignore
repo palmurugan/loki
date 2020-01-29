@@ -1,3 +1,17 @@
+customer-service/customer-service-core/target/
+customer-service/customer-service-dto/target/
+customer-service/customer-service-impl/target/
+customer-service/customer-service.iml
+
+configuration-service/configuration-service-core/target/
+configuration-service/configuration-service-dto/target/
+configuration-service/configuration-service/target/
+configuration-service/configuration-service.iml
+
+loki-bms/target/
+
+loki-ui/package-lock.json
+
 # Compiled class file
 *.class
 
