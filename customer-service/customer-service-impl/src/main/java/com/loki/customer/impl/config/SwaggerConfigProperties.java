@@ -3,7 +3,7 @@ package com.loki.customer.impl.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration("swaggerConfigProperties")
+//@Configuration("swaggerConfigProperties")
 public class SwaggerConfigProperties {
 
     @Value("${api.version}")

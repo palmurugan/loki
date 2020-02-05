@@ -10,4 +10,9 @@ class LokiBmsApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void test() {
+		System.out.println("hi all");
+	}
+
 }

@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @Import({AuditConfiguration.class})
-@ComponentScan({"com.loki.common", "com.loki.customer"})
-@EntityScan({"com.loki.customer.core.entity"})
-@EnableJpaRepositories({"com.loki.customer.impl.repository"})
+@ComponentScan({"com.loki.common", "com.loki.bms", "com.loki.customer", "com.loki.configuration"})
+@EntityScan({"com.loki.customer.core.entity", "com.loki.configuration.core.entity"})
+@EnableJpaRepositories({"com.loki.customer.impl.repository",  "com.loki.configuration.impl.repository"})
 public class LokiBmsApplication {
 
 	public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package com.loki.configuration.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.loki.common.dto.BaseDTO;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,6 +16,9 @@ public class ListOfValueDTO extends BaseDTO {
     
     @NotNull(message = "description is required")
     private String description;
+
+    @JsonIgnoreProperties("listOfValues")
+    private ListOfValueTypeDTO listOfValueType;
     
     public String getCode() {
         return code;
@@ -31,5 +35,12 @@ public class ListOfValueDTO extends BaseDTO {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public ListOfValueTypeDTO getListOfValueType() {
+        return listOfValueType;
+    }
+
+    public void setListOfValueType(ListOfValueTypeDTO listOfValueType) {
+        this.listOfValueType = listOfValueType;
+    }
 }

@@ -1,12 +1,15 @@
 package com.loki.configuration.core.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.loki.common.entity.BaseEntity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "listofvaluetype")
 public class ListOfValueTypeEntity extends BaseEntity {
+
     @Column(name = "clientid")
     private Integer clientId;
     
@@ -28,5 +31,4 @@ public class ListOfValueTypeEntity extends BaseEntity {
     public void setName(String name) {
         this.name = name;
     }
-    
 }

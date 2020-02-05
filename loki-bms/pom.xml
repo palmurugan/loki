@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<app.version>0.0.1-SNAPSHOT</app.version>
 	</properties>
 
 	<dependencies>
@@ -40,11 +41,18 @@
 			</exclusions>
 		</dependency>
 
+		<!-- Configuration Service Module -->
+		<dependency>
+			<groupId>com.loki.configuration.impl</groupId>
+			<artifactId>configuration-service-impl</artifactId>
+			<version>${app.version}</version>
+		</dependency>
+
 		<!-- Customer Service Module -->
 		<dependency>
 			<groupId>com.loki.customer.impl</groupId>
 			<artifactId>customer-service-impl</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${app.version}</version>
 		</dependency>
 
 	</dependencies>

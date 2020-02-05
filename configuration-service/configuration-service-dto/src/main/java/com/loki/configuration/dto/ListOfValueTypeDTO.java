@@ -1,9 +1,11 @@
 package com.loki.configuration.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.loki.common.dto.BaseDTO;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Pattern;
+import java.util.Set;
 
 public class ListOfValueTypeDTO extends BaseDTO {
 
@@ -30,5 +32,5 @@ public class ListOfValueTypeDTO extends BaseDTO {
     public void setName(String name) {
         this.name = name;
     }
-    
+
 }

@@ -1,6 +1,8 @@
 package com.loki.customer.dto;
 
 import com.loki.common.dto.BaseDTO;
+
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Pattern;
@@ -27,10 +29,12 @@ public class CustomerDTO extends BaseDTO {
     
     private Integer type;
 
-    private CustomerDetailsDTO customerDetail;
-
     private CustomerGroupDTO customerGroup;
 
+    @Valid
+    private CustomerDetailsDTO customerDetail;
+
+    @Valid
     private CustomerContactDTO customerContact;
     
     public String getFirstName() {
