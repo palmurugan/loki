@@ -8,11 +8,15 @@ configuration-service/configuration-service-dto/target/
 configuration-service/configuration-service/target/
 configuration-service/configuration-service.iml
 
-
 item-service/item-service-core/target/
 item-service/item-service-dto/target/
 item-service/item-service/target/
 item-service/item-service.iml
+
+invoice-service/invoice-service-core/target/
+invoice-service/invoice-service-dto/target/
+invoice-service/invoice-service/target/
+invoice-service/invoice-service.iml
 
 loki-bms/target/
 
