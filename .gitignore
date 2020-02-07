@@ -8,6 +8,12 @@ configuration-service/configuration-service-dto/target/
 configuration-service/configuration-service/target/
 configuration-service/configuration-service.iml
 
+
+item-service/item-service-core/target/
+item-service/item-service-dto/target/
+item-service/item-service/target/
+item-service/item-service.iml
+
 loki-bms/target/
 
 loki-ui/package-lock.json
