@@ -1,43 +1,42 @@
-<!-- Customer Details Section -->
-<!--<div class="p-grid">
+<!-- Customer Details -->
+<div class="p-grid">
     <div class="p-col-12">
         <mat-card class="mat-elevation-z8">
             <p-fieldset legend="Customer Details">
                 <div class="p-grid">
-                    <div class="p-col-6">
+                    <div class="p-col-4">
                         <mat-form-field appearance="outline">
                             <mat-label>Customer Name</mat-label>
                             <input matInput placeholder="Customer Name" autocomplete="off" required>
                         </mat-form-field>
                     </div>
-                    <div class="p-col-1"></div>
                     <div class="p-col-3">
                         <b>Billing Address:</b>
                         <address>
-                            Kazakootam,<br>
-                            Kerala, India
+                            Kanyakumari, <br>
+                            Tamilnadu, 627127, <br>
+                            India
                         </address>
                     </div>
-                    <div class="p-col-2">
-                        <b>Invoice# INV1201</b>
+                    <div class="p-col-3">
+                        <b>Shipping Address:</b>
+                        <address>
+                            Kanyakumari, <br>
+                            Tamilnadu, 627127, <br>
+                            India
+                        </address>
                     </div>
                 </div>
             </p-fieldset>
         </mat-card>
     </div>
-</div> -->
+</div>
 <!-- Invoice Details Section -->
 <div class="p-grid">
     <div class="p-col-12">
         <mat-card class="mat-elevation-z8">
             <p-fieldset legend="Invoice Details">
                 <div class="p-grid">
-                    <div class="p-col-3">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Customer Name</mat-label>
-                            <input matInput placeholder="Customer Name" autocomplete="off" required>
-                        </mat-form-field>
-                    </div>
                     <div class="p-col-3">
                         <mat-form-field appearance="outline">
                             <mat-label>Invoice date</mat-label>
@@ -147,6 +146,54 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+        </mat-card>
+    </div>
+</div>
+
+<!-- Invoice Price Details -->
+<div class="p-grid">
+    <div class="p-col-12">
+        <mat-card class="mat-elevation-z8">
+            <div class="p-grid">
+                <div class="p-col-6">
+
+                </div>
+                <div class="p-col-6">
+                    <div class="p-grid">
+                        <div class="p-col-8 align-right">Sub Total:</div>
+                        <div class="p-col-4 align-right">&#8377; 12,500.00</div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-8 align-right">CGST:</div>
+                        <div class="p-col-4 align-right">&#8377; 1,200.00</div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-8 align-right">SGST:</div>
+                        <div class="p-col-4 align-right">&#8377; 1,200.00</div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-8 align-right">IGST:</div>
+                        <div class="p-col-4 align-right">&#8377; 0.00</div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-8 align-right">Discount:</div>
+                        <div class="p-col-4 align-right">(-) &#8377; 1,200.00</div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-8 align-right">Round off:</div>
+                        <div class="p-col-4 align-right">(-)&#8377; 0.30.00</div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 align-right">
+                            <hr align="right" width="50%">
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-8 align-right">Total:</div>
+                        <div class="p-col-4 align-right">&#8377; 12,500.00</div>
+                    </div>
+                </div>
+            </div>
         </mat-card>
     </div>
 </div>

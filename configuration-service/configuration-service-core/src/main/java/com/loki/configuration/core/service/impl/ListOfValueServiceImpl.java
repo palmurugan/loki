@@ -9,6 +9,8 @@ import com.loki.configuration.core.service.ListOfValueService;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ListOfValueServiceImpl extends GenericService<ListOfValueDTO, ListOfValueEntity, Long> implements ListOfValueService {
 
@@ -18,5 +20,12 @@ public class ListOfValueServiceImpl extends GenericService<ListOfValueDTO, ListO
 
     public ListOfValueServiceImpl(ListOfValueEntityRepository repository, ListOfValueMapper mapper) {
         super(repository, mapper);
+        this.mapper = mapper;
+        this.repository = repository;
+    }
+
+    @Override
+    public List<ListOfValueDTO> findLovListByType(String name) {
+        return mapper.toDTOList(repository.findByListOfValueTypeName(name));
     }
 }

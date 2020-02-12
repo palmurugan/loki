@@ -6,6 +6,9 @@ body {
   font-weight: 500 !important;
   font-size: 13px !important;
 }
+.align-right {
+  text-align: right;
+}
 .navbar {
   height: 45px !important;
 }

@@ -18,6 +18,12 @@ import java.time.LocalDate;
 @Configuration
 public class SwaggerConfiguration {
 
+    /**
+     *
+     * @param swaggerConfigProperties
+     * @return
+     * @description swagger configuration for configuration service
+     */
     @Bean
     public Docket configurationAPI(SwaggerConfigProperties swaggerConfigProperties) {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage("com.loki.configuration"))
@@ -26,6 +32,13 @@ public class SwaggerConfiguration {
                 .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
     }
 
+    /**
+     *
+     * @param swaggerConfigProperties
+     * @return
+     *
+     * @description swagger configuration for customer service
+     */
     @Bean
     public Docket customerAPI(SwaggerConfigProperties swaggerConfigProperties) {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage("com.loki.customer"))
@@ -33,6 +46,7 @@ public class SwaggerConfiguration {
                 .genericModelSubstitutes(ResponseEntity.class).useDefaultResponseMessages(Boolean.valueOf(swaggerConfigProperties.getUseDefaultResponseMessages()))
                 .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
     }
+
 
     @Bean
     UiConfiguration uiConfig(SwaggerConfigProperties swaggerConfigProperties) {
