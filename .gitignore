@@ -2,6 +2,7 @@ customer-service/customer-service-core/target/
 customer-service/customer-service-dto/target/
 customer-service/customer-service-impl/target/
 customer-service/customer-service.iml
+customer-service/.idea/
 
 configuration-service/configuration-service-core/target/
 configuration-service/configuration-service-dto/target/
