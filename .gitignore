@@ -12,6 +12,9 @@ item-service/item-service-core/target/
 item-service/item-service-dto/target/
 item-service/item-service/target/
 item-service/item-service.iml
+item-service/item-service-core/item-service-core.iml
+item-service/item-service-dto/item-service-dto.iml
+item-service/item-service-impl/item-service-impl.iml
 
 invoice-service/invoice-service-core/target/
 invoice-service/invoice-service-dto/target/

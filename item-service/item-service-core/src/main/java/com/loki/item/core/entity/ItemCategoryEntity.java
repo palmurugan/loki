@@ -5,13 +5,21 @@ import com.loki.common.entity.BaseEntity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "itemcategory")
+@Table(name = "item_category")
 public class ItemCategoryEntity extends BaseEntity {
+
+    @Column(name = "client_id", nullable = false)
+    private Long clientId;
+
     @Column(name = "name")
     private String name;
     
     @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn
+    private ItemTypeEntity itemType;
     
     public String getName() {
         return name;
@@ -28,5 +36,12 @@ public class ItemCategoryEntity extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
 }

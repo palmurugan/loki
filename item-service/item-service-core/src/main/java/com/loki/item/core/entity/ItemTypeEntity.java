@@ -5,8 +5,9 @@ import com.loki.common.entity.BaseEntity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "itemtype")
+@Table(name = "item_type")
 public class ItemTypeEntity extends BaseEntity {
+
     @Column(name = "name", unique = true)
     private String name;
     
