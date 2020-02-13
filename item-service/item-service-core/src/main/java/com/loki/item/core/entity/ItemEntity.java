@@ -13,7 +13,16 @@ public class ItemEntity extends BaseEntity {
     
     @Column(name = "description")
     private String description;
-    
+
+    @Column(name = "unit", nullable = false)
+    private String unit;
+
+    @Column(name = "tax_preference", nullable = false)
+    private String taxPreference;
+
+    @Column(name = "hsn")
+    private String hsn;
+
     public String getName() {
         return name;
     }
@@ -29,5 +38,28 @@ public class ItemEntity extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public String getTaxPreference() {
+        return taxPreference;
+    }
+
+    public void setTaxPreference(String taxPreference) {
+        this.taxPreference = taxPreference;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getHsn() {
+        return hsn;
+    }
+
+    public void setHsn(String hsn) {
+        this.hsn = hsn;
+    }
 }
