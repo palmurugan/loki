@@ -1,6 +1,8 @@
 package com.loki.item.dto;
 
 import com.loki.common.dto.BaseDTO;
+
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Pattern;
@@ -15,6 +17,14 @@ public class ItemDTO extends BaseDTO {
     
     @NotNull(message = "description is required")
     private String description;
+
+    @NotNull(message = "unit is required")
+    private String unit;
+
+    @NotNull(message = "tax preference is required")
+    private String taxPreference;
+
+    private String hsn;
     
     public String getName() {
         return name;
@@ -31,5 +41,28 @@ public class ItemDTO extends BaseDTO {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getTaxPreference() {
+        return taxPreference;
+    }
+
+    public void setTaxPreference(String taxPreference) {
+        this.taxPreference = taxPreference;
+    }
+
+    public String getHsn() {
+        return hsn;
+    }
+
+    public void setHsn(String hsn) {
+        this.hsn = hsn;
+    }
 }

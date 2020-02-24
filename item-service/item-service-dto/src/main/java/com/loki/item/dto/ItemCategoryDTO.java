@@ -7,6 +7,7 @@ import javax.validation.constraints.Pattern;
 
 public class ItemCategoryDTO extends BaseDTO {
 
+    @NotNull(message = "client is required")
     private Long clientId;
     
     @NotNull(message = "name is required")
