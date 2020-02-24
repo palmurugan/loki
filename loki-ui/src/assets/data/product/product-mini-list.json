@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Product1",
+        "price": 1200,
+        "unit": "TON",
+        "discount": 1,
+        "tax": 5
+    },
+    {
+        "name": "Product2",
+        "price": 1450,
+        "unit": "TON",
+        "discount": 2,
+        "tax": 5
+    },
+    {
+        "name": "Product3",
+        "price": 1750,
+        "unit": "TON",
+        "discount": 1.2,
+        "tax": 5
+    },
+    {
+        "name": "Product4",
+        "price": 1650,
+        "unit": "TON",
+        "discount": 1.5,
+        "tax": 5
+    }
+]
