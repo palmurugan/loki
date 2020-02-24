@@ -21,6 +21,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormComponent } from './components/form/form.component';
 import { TestComponent } from './components/test/test.component';
 
+/** Custom Services */
+import { BillingService } from './service/billing.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,7 @@ import { TestComponent } from './components/test/test.component';
     MaterialModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [BillingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

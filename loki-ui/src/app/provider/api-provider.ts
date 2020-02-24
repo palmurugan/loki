@@ -4,4 +4,8 @@ export class APIProvider {
         get: '/assets/data/customer/customer.json'
     }
 
+    public static PRODUCT_ENDPOINTS = {
+        FINDALL: '/assets/data/product/product-mini-list.json'
+    }
+
 }
