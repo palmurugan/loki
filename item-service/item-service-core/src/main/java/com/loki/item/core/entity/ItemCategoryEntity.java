@@ -44,4 +44,12 @@ public class ItemCategoryEntity extends BaseEntity {
     public void setClientId(Long clientId) {
         this.clientId = clientId;
     }
+
+    public ItemTypeEntity getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(ItemTypeEntity itemType) {
+        this.itemType = itemType;
+    }
 }

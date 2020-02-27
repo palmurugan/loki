@@ -25,6 +25,11 @@ public class ItemDTO extends BaseDTO {
     private String taxPreference;
 
     private String hsn;
+
+    @NotNull(message = "Price is required")
+    private Double price;
+
+    private ItemCategoryDTO itemCategory;
     
     public String getName() {
         return name;
@@ -64,5 +69,13 @@ public class ItemDTO extends BaseDTO {
 
     public void setHsn(String hsn) {
         this.hsn = hsn;
+    }
+
+    public ItemCategoryDTO getItemCategory() {
+        return itemCategory;
+    }
+
+    public void setItemCategory(ItemCategoryDTO itemCategory) {
+        this.itemCategory = itemCategory;
     }
 }

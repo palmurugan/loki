@@ -23,6 +23,13 @@ public class ItemEntity extends BaseEntity {
     @Column(name = "hsn")
     private String hsn;
 
+    @Column(name = "price", nullable = false)
+    private Double price;
+
+    @ManyToOne
+    @JoinColumn
+    private ItemCategoryEntity itemCategory;
+
     public String getName() {
         return name;
     }
@@ -61,5 +68,13 @@ public class ItemEntity extends BaseEntity {
 
     public void setHsn(String hsn) {
         this.hsn = hsn;
+    }
+
+    public ItemCategoryEntity getItemCategory() {
+        return itemCategory;
+    }
+
+    public void setItemCategory(ItemCategoryEntity itemCategory) {
+        this.itemCategory = itemCategory;
     }
 }

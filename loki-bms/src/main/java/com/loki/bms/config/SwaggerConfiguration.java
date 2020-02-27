@@ -18,6 +18,10 @@ import java.time.LocalDate;
 @Configuration
 public class SwaggerConfiguration {
 
+    private static final String CONFIGURATION_BASE_PACKAGE = "com.loki.configuration";
+    private static final String CUSTOMER_BASE_PACKAGE = "com.loki.customer";
+    private static final String ITEM_BASE_PACKAGE = "com.loki.item";
+
     /**
      *
      * @param swaggerConfigProperties
@@ -26,7 +30,7 @@ public class SwaggerConfiguration {
      */
     @Bean
     public Docket configurationAPI(SwaggerConfigProperties swaggerConfigProperties) {
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage("com.loki.configuration"))
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage(CONFIGURATION_BASE_PACKAGE))
                 .paths(PathSelectors.any()).build().pathMapping("/").groupName("ConfigurationService").directModelSubstitute(LocalDate.class, String.class)
                 .genericModelSubstitutes(ResponseEntity.class).useDefaultResponseMessages(Boolean.valueOf(swaggerConfigProperties.getUseDefaultResponseMessages()))
                 .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
@@ -41,8 +45,16 @@ public class SwaggerConfiguration {
      */
     @Bean
     public Docket customerAPI(SwaggerConfigProperties swaggerConfigProperties) {
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage("com.loki.customer"))
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage(CUSTOMER_BASE_PACKAGE))
                 .paths(PathSelectors.any()).build().pathMapping("/").groupName("CustomerService").directModelSubstitute(LocalDate.class, String.class)
+                .genericModelSubstitutes(ResponseEntity.class).useDefaultResponseMessages(Boolean.valueOf(swaggerConfigProperties.getUseDefaultResponseMessages()))
+                .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
+    }
+
+    @Bean
+    public Docket itemServiceAPI(SwaggerConfigProperties swaggerConfigProperties) {
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage(ITEM_BASE_PACKAGE))
+                .paths(PathSelectors.any()).build().pathMapping("/").groupName("ItemService").directModelSubstitute(LocalDate.class, String.class)
                 .genericModelSubstitutes(ResponseEntity.class).useDefaultResponseMessages(Boolean.valueOf(swaggerConfigProperties.getUseDefaultResponseMessages()))
                 .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
     }

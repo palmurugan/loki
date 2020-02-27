@@ -1,8 +1,0 @@
-com\loki\configuration\impl\service\ListOfValueTypeServiceExt.class
-com\loki\configuration\impl\service\impl\ListOfValueTypeServiceImplExt.class
-com\loki\configuration\impl\web\resource\ListOfValueResourceExt.class
-com\loki\configuration\impl\web\resource\ListOfValueTypeResourceExt.class
-com\loki\configuration\impl\repository\ListOfValueTypeEntityRepositoryExt.class
-com\loki\configuration\impl\repository\ListOfValueEntityRepositoryExt.class
-com\loki\configuration\impl\service\impl\ListOfValueServiceImplExt.class
-com\loki\configuration\impl\service\ListOfValueServiceExt.class

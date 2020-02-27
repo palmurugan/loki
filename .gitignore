@@ -8,6 +8,7 @@ configuration-service/configuration-service-core/target/
 configuration-service/configuration-service-dto/target/
 configuration-service/configuration-service/target/
 configuration-service/configuration-service.iml
+configuration-service/configuration-service-impl/target/
 
 item-service/item-service-impl/target/
 item-service/item-service-core/target/
