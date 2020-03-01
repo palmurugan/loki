@@ -16,6 +16,6 @@ public class InvoiceResource extends BaseRestResource<InvoiceDTO, Long> {
 
     @Inject
     public InvoiceResource(InvoiceService service) {
-        super(service);
+        super(service, null);
     }
 }

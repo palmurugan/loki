@@ -16,6 +16,6 @@ public class CustomerGroupResource extends BaseRestResource<CustomerGroupDTO, Lo
 
     @Inject
     public CustomerGroupResource(CustomerGroupService service) {
-        super(service);
+        super(service, null);
     }
 }

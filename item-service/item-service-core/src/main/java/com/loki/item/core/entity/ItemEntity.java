@@ -3,6 +3,7 @@ package com.loki.item.core.entity;
 import com.loki.common.entity.BaseEntity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "item")
@@ -10,7 +11,7 @@ public class ItemEntity extends BaseEntity {
 
     @Column(name = "name")
     private String name;
-    
+
     @Column(name = "description")
     private String description;
 
@@ -23,8 +24,8 @@ public class ItemEntity extends BaseEntity {
     @Column(name = "hsn")
     private String hsn;
 
-    @Column(name = "price", nullable = false)
-    private Double price;
+    @Column(name = "price", precision = 21, scale = 2, nullable = false)
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn
@@ -37,7 +38,7 @@ public class ItemEntity extends BaseEntity {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -76,5 +77,13 @@ public class ItemEntity extends BaseEntity {
 
     public void setItemCategory(ItemCategoryEntity itemCategory) {
         this.itemCategory = itemCategory;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

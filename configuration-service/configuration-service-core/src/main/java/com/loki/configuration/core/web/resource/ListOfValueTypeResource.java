@@ -16,6 +16,6 @@ public class ListOfValueTypeResource extends BaseRestResource<ListOfValueTypeDTO
 
     @Inject
     public ListOfValueTypeResource(ListOfValueTypeService service) {
-        super(service);
+        super(service, null);
     }
 }

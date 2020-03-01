@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Pattern;
+import java.math.BigDecimal;
 
 public class ItemDTO extends BaseDTO {
 
@@ -27,7 +28,7 @@ public class ItemDTO extends BaseDTO {
     private String hsn;
 
     @NotNull(message = "Price is required")
-    private Double price;
+    private BigDecimal price;
 
     private ItemCategoryDTO itemCategory;
     
@@ -77,5 +78,13 @@ public class ItemDTO extends BaseDTO {
 
     public void setItemCategory(ItemCategoryDTO itemCategory) {
         this.itemCategory = itemCategory;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }

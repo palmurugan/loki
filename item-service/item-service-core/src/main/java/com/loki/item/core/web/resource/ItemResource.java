@@ -16,6 +16,6 @@ public class ItemResource extends BaseRestResource<ItemDTO, Long> {
 
     @Inject
     public ItemResource(ItemService service) {
-        super(service);
+        super(service, null);
     }
 }

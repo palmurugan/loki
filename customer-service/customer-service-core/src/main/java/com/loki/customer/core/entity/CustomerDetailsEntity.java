@@ -14,16 +14,16 @@ public class CustomerDetailsEntity extends BaseEntity {
     @Column(name = "currency")
     private String currency;
     
-    @Column(name = "tin", unique = true)
+    @Column(name = "tin")
     private String tin;
     
-    @Column(name = "gstin", unique = true)
+    @Column(name = "gstin")
     private String gstin;
     
-    @Column(name = "pan", unique = true)
+    @Column(name = "pan")
     private String pan;
     
-    @Column(name = "credit_limit", unique = true)
+    @Column(name = "credit_limit")
     private Double creditLimit;
     
     @Column(name = "bill_credit_limit")
