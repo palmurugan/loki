@@ -18,5 +18,17 @@ public class InvoiceServiceImpl extends GenericService<InvoiceDTO, InvoiceEntity
 
     public InvoiceServiceImpl(InvoiceEntityRepository repository, InvoiceMapper mapper) {
         super(repository, mapper);
+        this.repository =  repository;
+        this.mapper =  mapper;
+    }
+
+    @Override
+    public InvoiceDTO saveOrUpdate(InvoiceDTO invoiceDTO) {
+        invoiceDTO.getInvoiceLine().forEach(invoiceLineDTO -> invoiceLineDTO.setInvoice(invoiceDTO));
+
+       InvoiceEntity invoiceEntity = mapper.toEntity(invoiceDTO);
+
+        //return mapper.toDTO(repository.save(mapper.toEntity(invoiceDTO)));
+        return null;
     }
 }

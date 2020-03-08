@@ -4,6 +4,7 @@ import com.loki.common.entity.BaseEntity;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "invoice")
@@ -12,13 +13,13 @@ public class InvoiceEntity extends BaseEntity {
     @Column(name = "customer_id")
     private Long customerId;
 
-    @Column(name = "currency_id")
-    private Long currencyId;
+    @Column(name = "currency_id", nullable = false)
+    private String currency;
 
-    @Column(name = "invoice_date")
+    @Column(name = "invoice_date", nullable = false)
     private Instant invoiceDate;
 
-    @Column(name = "due_date")
+    @Column(name = "due_date", nullable = false)
     private Instant dueDate;
 
     @Column(name = "notes")
@@ -27,11 +28,19 @@ public class InvoiceEntity extends BaseEntity {
     @Column(name = "payment_attempts")
     private Long paymentAttempts;
 
-    @Column(name = "invoice_status")
+    @Column(name = "invoice_status", nullable = false)
     private String invoiceStatus;
 
     @Column(name = "last_remainder")
     private Instant lastRemainder;
+
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
+    private List<InvoiceLineEntity> invoiceLine;
+
+    @PrePersist
+    private void prePersist() {
+
+    }
 
     public Long getCustomerId() {
         return customerId;
@@ -41,12 +50,12 @@ public class InvoiceEntity extends BaseEntity {
         this.customerId = customerId;
     }
 
-    public Long getCurrencyId() {
-        return currencyId;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setCurrencyId(Long currencyId) {
-        this.currencyId = currencyId;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public Instant getInvoiceDate() {
@@ -95,5 +104,13 @@ public class InvoiceEntity extends BaseEntity {
 
     public void setLastRemainder(Instant lastRemainder) {
         this.lastRemainder = lastRemainder;
+    }
+
+    public List<InvoiceLineEntity> getInvoiceLine() {
+        return invoiceLine;
+    }
+
+    public void setInvoiceLine(List<InvoiceLineEntity> invoiceLine) {
+        this.invoiceLine = invoiceLine;
     }
 }

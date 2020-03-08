@@ -21,6 +21,7 @@ public class SwaggerConfiguration {
     private static final String CONFIGURATION_BASE_PACKAGE = "com.loki.configuration";
     private static final String CUSTOMER_BASE_PACKAGE = "com.loki.customer";
     private static final String ITEM_BASE_PACKAGE = "com.loki.item";
+    private static final String INVOICE_BASE_PACKAGE = "com.loki.invoice";
 
     /**
      *
@@ -51,10 +52,28 @@ public class SwaggerConfiguration {
                 .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
     }
 
+    /**
+     *
+     * @param swaggerConfigProperties
+     * @return
+     */
     @Bean
     public Docket itemServiceAPI(SwaggerConfigProperties swaggerConfigProperties) {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage(ITEM_BASE_PACKAGE))
                 .paths(PathSelectors.any()).build().pathMapping("/").groupName("ItemService").directModelSubstitute(LocalDate.class, String.class)
+                .genericModelSubstitutes(ResponseEntity.class).useDefaultResponseMessages(Boolean.valueOf(swaggerConfigProperties.getUseDefaultResponseMessages()))
+                .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
+    }
+
+    /**
+     *
+     * @param swaggerConfigProperties
+     * @return
+     */
+    @Bean
+    public Docket invoiceServiceAPI(SwaggerConfigProperties swaggerConfigProperties) {
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo(swaggerConfigProperties)).enable(Boolean.valueOf(swaggerConfigProperties.getEnabled())).select().apis(RequestHandlerSelectors.basePackage(INVOICE_BASE_PACKAGE))
+                .paths(PathSelectors.any()).build().pathMapping("/").groupName("InvoiceService").directModelSubstitute(LocalDate.class, String.class)
                 .genericModelSubstitutes(ResponseEntity.class).useDefaultResponseMessages(Boolean.valueOf(swaggerConfigProperties.getUseDefaultResponseMessages()))
                 .enableUrlTemplating(Boolean.valueOf(swaggerConfigProperties.getEnableUrlTemplating()));
     }

@@ -22,6 +22,7 @@ item-service/item-service-impl/item-service-impl.iml
 invoice-service/invoice-service-core/target/
 invoice-service/invoice-service-dto/target/
 invoice-service/invoice-service/target/
+invoice-service/invoice-service-impl/target
 invoice-service/invoice-service.iml
 
 loki-bms/target/

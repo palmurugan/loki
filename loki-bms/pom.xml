@@ -62,6 +62,13 @@
             <version>${app.version}</version>
         </dependency>
 
+        <!-- Invoice Service Module-->
+        <dependency>
+            <groupId>com.loki.invoice.impl</groupId>
+            <artifactId>invoice-service-impl</artifactId>
+            <version>${app.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
