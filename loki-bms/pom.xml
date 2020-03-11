@@ -17,6 +17,8 @@
     <properties>
         <java.version>1.8</java.version>
         <app.version>0.0.1-SNAPSHOT</app.version>
+        <ignite.version>2.8.0</ignite.version>
+        <h2.version>1.4.197</h2.version>
     </properties>
 
     <dependencies>
@@ -39,6 +41,13 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- Apache Ignite for Caching -->
+        <dependency>
+            <groupId>org.apache.ignite</groupId>
+            <artifactId>ignite-spring-data_2.0</artifactId>
+            <version>${ignite.version}</version>
         </dependency>
 
         <!-- Configuration Service Module -->

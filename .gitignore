@@ -24,6 +24,9 @@ invoice-service/invoice-service-dto/target/
 invoice-service/invoice-service/target/
 invoice-service/invoice-service-impl/target
 invoice-service/invoice-service.iml
+invoice-service/invoice-service-core/invoice-service-core.iml
+invoice-service/invoice-service-impl/invoice-service-impl.iml
+invoice-service/invoice-service-core/invoice-service-core.iml
 
 loki-bms/target/
 
