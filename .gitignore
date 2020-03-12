@@ -29,6 +29,16 @@ invoice-service/invoice-service-impl/invoice-service-impl.iml
 invoice-service/invoice-service-core/invoice-service-core.iml
 invoice-service/invoice-service-dto/invoice-service-dto.iml
 
+expense-service/expense-service-core/target/
+expense-service/expense-service-dto/target/
+expense-service/expense-service/target/
+expense-service/expense-service-impl/target
+expense-service/expense-service.iml
+expense-service/expense-service-core/expense-service-core.iml
+expense-service/expense-service-impl/expense-service-impl.iml
+expense-service/expense-service-core/expense-service-core.iml
+expense-service/expense-service-dto/expense-service-dto.iml
+
 loki-bms/target/
 
 loki-ui/package-lock.json
