@@ -48,14 +48,23 @@ public class InvoiceLineCacheServiceImpl implements InvoiceLineCacheService {
     private Optional<InvoiceCacheDTO> prepareInvoiceData(Long invoiceId) {
         /** Error will thrown if the system doesn't have any data for the requested invoice */
         Optional<InvoiceCacheDTO> invoiceCacheDTO = invoiceCacheRepository.findById(invoiceId);
-        invoiceCacheDTO.orElseThrow(RuntimeException::new);
+        if (!invoiceCacheDTO.isPresent()) {
+            throw new RuntimeException("Invoice Not Found!");
+        }
 
-        List<InvoiceLineCacheDTO> invoiceLineCacheDTOList = StreamSupport.stream(invoiceLineCacheRepository.findAll().spliterator(), Boolean.FALSE).collect(Collectors.toList());
+        /**
+         * Retrieving all the invoice line since spring data ignite not supporting query with the version 2.8.0
+         * Have to change this logic as soon since its a bad way of fetching data.
+         */
+        List<InvoiceLineCacheDTO> invoiceLineCacheDTOList = StreamSupport.stream(invoiceLineCacheRepository.findAll().spliterator(), Boolean.FALSE)
+                .filter(invoiceLine -> invoiceLine.getInvoiceId() == invoiceId).collect(Collectors.toList());
         if (!invoiceLineCacheDTOList.isEmpty()) {
             invoiceLineCacheDTOList.stream().map(this::calculateTotal).collect(Collectors.toList());
         }
 
+        /** Set total, tax, discount, invoiceline to the parent invoice */
         invoiceCacheDTO.get().setTotal(invoiceLineCacheDTOList.stream().map(InvoiceLineCacheDTO::getTotal).reduce(BigDecimal.ZERO, ArithmeticUtils::add));
+        invoiceCacheDTO.get().setInvoiceLines(invoiceLineCacheDTOList);
         return invoiceCacheDTO;
     }
 
