@@ -16,6 +16,6 @@ public class ExpenseResource extends BaseRestResource<ExpenseDTO, Long> {
 
     @Inject
     public ExpenseResource(ExpenseService service) {
-        super(service);
+        super(service, null);
     }
 }
