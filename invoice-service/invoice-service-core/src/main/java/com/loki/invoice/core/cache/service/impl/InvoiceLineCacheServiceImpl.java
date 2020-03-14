@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import static com.loki.common.utils.CalculationUtil.fnDecimalMultiplication;
-import static com.loki.common.utils.CommonUtils.getRandomNumber;
+import static com.loki.common.utils.CommonUtils.getUniqueId;
 
 /**
  * @author palmuruganc
@@ -34,7 +34,7 @@ public class InvoiceLineCacheServiceImpl implements InvoiceLineCacheService {
 
     @Override
     public Optional<InvoiceCacheDTO> save(InvoiceLineCacheDTO invoiceLineCacheDTO) {
-        invoiceLineCacheDTO.setId(getRandomNumber());
+        invoiceLineCacheDTO.setId(getUniqueId());
         invoiceLineCacheRepository.save(invoiceLineCacheDTO.getId(), invoiceLineCacheDTO);
         return prepareInvoiceData(invoiceLineCacheDTO.getInvoiceId());
     }
@@ -57,7 +57,7 @@ public class InvoiceLineCacheServiceImpl implements InvoiceLineCacheService {
          * Have to change this logic as soon since its a bad way of fetching data.
          */
         List<InvoiceLineCacheDTO> invoiceLineCacheDTOList = StreamSupport.stream(invoiceLineCacheRepository.findAll().spliterator(), Boolean.FALSE)
-                .filter(invoiceLine -> invoiceLine.getInvoiceId() == invoiceId).collect(Collectors.toList());
+                .filter(invoiceLine -> invoiceLine.getInvoiceId().equals(invoiceId)).collect(Collectors.toList());
         if (!invoiceLineCacheDTOList.isEmpty()) {
             invoiceLineCacheDTOList.stream().map(this::calculateTotal).collect(Collectors.toList());
         }

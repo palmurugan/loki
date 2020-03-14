@@ -5,7 +5,7 @@ import org.apache.ignite.cache.query.annotations.QuerySqlField;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 public class InvoiceCacheDTO implements Serializable {
@@ -22,11 +22,11 @@ public class InvoiceCacheDTO implements Serializable {
 
     @NotNull(message = "invoice date is required")
     @QuerySqlField(index = true)
-    private Instant invoiceDate;
+    private LocalDate invoiceDate;
 
     @NotNull(message = "due date is required")
     @QuerySqlField(index = true)
-    private Instant dueDate;
+    private LocalDate dueDate;
 
     @QuerySqlField(index = true)
     private String notes;
@@ -38,7 +38,7 @@ public class InvoiceCacheDTO implements Serializable {
     private String invoiceStatus;
 
     @QuerySqlField(index = true)
-    private Instant lastRemainder;
+    private LocalDate lastRemainder;
 
     private BigDecimal total;
 
@@ -68,19 +68,19 @@ public class InvoiceCacheDTO implements Serializable {
         this.currency = currency;
     }
 
-    public Instant getInvoiceDate() {
+    public LocalDate getInvoiceDate() {
         return invoiceDate;
     }
 
-    public void setInvoiceDate(Instant invoiceDate) {
+    public void setInvoiceDate(LocalDate invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
 
-    public Instant getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Instant dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -108,11 +108,11 @@ public class InvoiceCacheDTO implements Serializable {
         this.invoiceStatus = invoiceStatus;
     }
 
-    public Instant getLastRemainder() {
+    public LocalDate getLastRemainder() {
         return lastRemainder;
     }
 
-    public void setLastRemainder(Instant lastRemainder) {
+    public void setLastRemainder(LocalDate lastRemainder) {
         this.lastRemainder = lastRemainder;
     }
 
