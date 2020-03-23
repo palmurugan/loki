@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 public class CustomerDetailsDTO extends BaseDTO {
 
 
-    @NotNull(message = "taxpreference is required")
+    //@NotNull(message = "taxpreference is required")
     private String taxPreference;
 
     @NotNull(message = "currency is required")
@@ -25,7 +25,7 @@ public class CustomerDetailsDTO extends BaseDTO {
     @NotNull(message = "bill credit limit is required")
     private Double billCreditLimit;
 
-    @NotNull(message = "payment terms is required")
+    //@NotNull(message = "payment terms is required")
     private String paymentTerms;
 
     @NotNull(message = "bill type is required")

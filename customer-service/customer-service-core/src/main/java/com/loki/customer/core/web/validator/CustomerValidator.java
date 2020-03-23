@@ -16,8 +16,8 @@ public class CustomerValidator implements GenericValidator<CustomerDTO> {
     public void validate(CustomerDTO customerDTO) {
         StringBuilder errorFields = new StringBuilder();
 
-        errorFields.append(ValidatorUtil.testValue().test(customerDTO.getFirstName())
-                .getFieldErrorIfInValid("Please specify valid firstName").orElse(""));
+       /* errorFields.append(ValidatorUtil.testValue().test(customerDTO.getFirstName())
+                .getFieldErrorIfInValid("Please specify valid firstName").orElse(""));*/
 
         String errors = errorFields.toString();
         if (!errors.isEmpty()) {

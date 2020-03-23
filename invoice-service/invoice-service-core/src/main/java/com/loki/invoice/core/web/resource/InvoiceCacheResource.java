@@ -16,7 +16,6 @@ import java.util.Objects;
 public class InvoiceCacheResource {
 
     private InvoiceCacheService invoiceCacheService;
-
     private InvoiceLineCacheService invoiceLineCacheService;
 
     public InvoiceCacheResource(InvoiceCacheService invoiceCacheService, InvoiceLineCacheService invoiceLineCacheService) {
@@ -24,18 +23,59 @@ public class InvoiceCacheResource {
         this.invoiceLineCacheService = Objects.requireNonNull(invoiceLineCacheService, "InvoiceLineCacheService Should not be null");
     }
 
+    /**
+     * Persist Invoice details to Cache.
+     * This one doesn't include invoiceLine details.
+     *
+     * @param invoiceCacheDTO
+     * @return
+     */
     @PostMapping
     public ResponseEntity<InvoiceCacheDTO> save(@RequestBody InvoiceCacheDTO invoiceCacheDTO) {
         return new ResponseEntity<>(invoiceCacheService.save(invoiceCacheDTO), HttpStatus.CREATED);
     }
 
+    /**
+     * Persist Invoice Line details to cache
+     * Returns Invoice details along with invoice line with local calculations
+     *
+     * @param invoiceLineCacheDTO
+     * @return
+     */
+    @PostMapping("/line")
+    public ResponseEntity<InvoiceCacheDTO> save(@RequestBody InvoiceLineCacheDTO invoiceLineCacheDTO) {
+        return new ResponseEntity<>(invoiceLineCacheService.save(invoiceLineCacheDTO).get(), HttpStatus.CREATED);
+    }
+
+    /**
+     * Returns all the invoice details from the cache
+     *
+     * @return
+     */
     @GetMapping
     public ResponseEntity<List<InvoiceCacheDTO>> findAll() {
         return new ResponseEntity<>(invoiceCacheService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/line")
-    public ResponseEntity<InvoiceCacheDTO> save(@RequestBody InvoiceLineCacheDTO invoiceLineCacheDTO) {
-        return new ResponseEntity<>(invoiceLineCacheService.save(invoiceLineCacheDTO).get(), HttpStatus.CREATED);
+    /**
+     * Returns invoice details along with invoice line
+     *
+     * @param invoiceId
+     * @return InvoiceCacheDTO, InvoiceLineCache
+     */
+    @GetMapping("/{invoiceId}")
+    public ResponseEntity<InvoiceCacheDTO> findById(@PathVariable Long invoiceId) {
+        return new ResponseEntity<>(invoiceCacheService.findById(invoiceId), HttpStatus.OK);
+    }
+
+    /**
+     * Returns invoice details along with invoiceLine (Local calculation)
+     *
+     * @param invoiceId
+     * @return
+     */
+    @GetMapping("/{invoiceId}/line")
+    public ResponseEntity<InvoiceCacheDTO> findByInvoice(@PathVariable Long invoiceId) {
+        return new ResponseEntity<>(invoiceLineCacheService.findAllInvoiceLineCache(invoiceId).get(), HttpStatus.OK);
     }
 }

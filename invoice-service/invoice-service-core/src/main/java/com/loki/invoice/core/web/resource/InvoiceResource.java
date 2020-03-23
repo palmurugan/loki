@@ -31,6 +31,11 @@ public class InvoiceResource extends BaseRestResource<InvoiceDTO, Long> {
         return new ResponseEntity<>(invoiceService.saveOrUpdate(invoiceDTO), HttpStatus.CREATED);
     }
 
+    @PostMapping("/{invoiceId}")
+    public ResponseEntity<InvoiceDTO> saveInvoice(@PathVariable Long invoiceId) {
+        return new ResponseEntity<>(invoiceService.saveInvoice(invoiceId), HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<Page<InvoiceDTO>> findAll(Pageable pageable) {
         return new ResponseEntity<>(invoiceService.findAll(pageable), HttpStatus.OK);

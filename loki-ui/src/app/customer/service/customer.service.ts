@@ -15,7 +15,7 @@ export class CustomerService {
    * 
    * @param customerForm 
    */
-  createCustomer(customerForm: any) {
+  createCustomer(customerForm: any): Observable<any> {
     return this.globalService.postService(APIProvider.CUSTOMER_ENDPOINTS.create, customerForm, 'createCustomer');
   }
 
@@ -25,14 +25,14 @@ export class CustomerService {
    * @param customerForm 
    */
   updateCustomer(customerId: number, customerForm: any) {
-    return this.globalService.postService(APIProvider.CUSTOMER_ENDPOINTS.create + '/' + customerId, customerForm, 'createCustomer');
+    return this.globalService.putService(APIProvider.CUSTOMER_ENDPOINTS.create + '/' + customerId, customerForm, 'createCustomer');
   }
 
   /**
    * Http service to fetch all the customer details
    */
-  getAllCustomers(): Observable<any> {
-    return this.globalService.getService(APIProvider.CUSTOMER_ENDPOINTS.create, 'getAllCustomers');
+  getAllCustomers(page: number, size: number): Observable<any> {
+    return this.globalService.getService(APIProvider.CUSTOMER_ENDPOINTS.get + '?page=' + page + '&size=' + size, 'getAllCustomers');
   }
 
   /**
@@ -40,14 +40,13 @@ export class CustomerService {
    * @param customerId 
    */
   getCustomer(customerId: number): Observable<any> {
-    return this.globalService.getService(APIProvider.CUSTOMER_ENDPOINTS.get, 'getCustomers');
+    return this.globalService.getService(APIProvider.CUSTOMER_ENDPOINTS.get + '/' + customerId, 'getCustomers');
   }
 
   /**
    * Http service to delete a customer
    */
-  deleteCustomer() {
-    return this.globalService.deleteService(APIProvider.CUSTOMER_ENDPOINTS.create, 'deleteCustomer');
+  deleteCustomer(customerId: number) {
+    return this.globalService.deleteService(APIProvider.CUSTOMER_ENDPOINTS.create + '/' + customerId, 'deleteCustomer');
   }
-
 }

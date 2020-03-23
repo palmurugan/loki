@@ -26,6 +26,9 @@ export class CustomerComponent implements OnInit {
   billing_period: number;
   billing_type: number;
 
+  updateMode: boolean = false;
+  customerId: number;
+
 
   constructor(private router: Router, private formBuilder: FormBuilder, private route: ActivatedRoute, private customerService: CustomerService) {
 
@@ -71,8 +74,10 @@ export class CustomerComponent implements OnInit {
      */
     this.route.paramMap.subscribe(params => {
       if (params.get('id')) {
-        this.customerService.getCustomer(parseInt(params.get('id'))).subscribe(result => {
-          this.customerForm.setValue(result);
+        this.customerId = parseInt(params.get('id'));
+        this.customerService.getCustomer(this.customerId).subscribe(result => {
+          this.updateMode = true;
+          this.customerForm.patchValue(result);
         });
       }
     });
@@ -80,6 +85,7 @@ export class CustomerComponent implements OnInit {
 
   initiateForm() {
     this.customerForm = this.formBuilder.group({
+      id: new FormControl(''),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
@@ -96,7 +102,7 @@ export class CustomerComponent implements OnInit {
       }),
       customerDetail: this.formBuilder.group({
         currency: new FormControl('', [Validators.required]),
-        billingType: new FormControl('', [Validators.required]),
+        billType: new FormControl('', [Validators.required]),
         billingPeriod: new FormControl('', [Validators.required]),
         billCreditLimit: new FormControl('', [Validators.required]),
         creditLimit: new FormControl('', [Validators.required]),
@@ -115,7 +121,15 @@ export class CustomerComponent implements OnInit {
   }
 
   save() {
-    console.log('Customer Form:', this.customerForm);
+    this.customerService.createCustomer(this.customerForm.value).subscribe(result => {
+      this.router.navigate(['/customerlist']);
+    });
+  }
+
+  update() {
+    this.customerService.updateCustomer(this.customerId, this.customerForm.value).subscribe(result => {
+      this.router.navigate(['/customerlist']);
+    });
   }
 
   cancel() {

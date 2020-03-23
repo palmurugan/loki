@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.inject.Inject;
 
 @RestController
-@RequestMapping(value = "/customers")
+@RequestMapping(value = "/v1/customers")
 public class CustomerResource extends BaseRestResource<CustomerDTO, Long> {
 
     private CustomerService customerService;

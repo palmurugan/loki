@@ -1,7 +1,7 @@
 export class APIProvider {
     public static CUSTOMER_ENDPOINTS = {
-        create: '/assets/data/customer/customer-list.json',
-        get: '/assets/data/customer/customer.json'
+        create: '/v1/customers',
+        get: '/v1/customers'
     }
 
     public static PRODUCT_ENDPOINTS = {

@@ -173,14 +173,14 @@
                                 <div class="form-container">
                                     <mat-form-field appearance="outline">
                                         <mat-label>Billing Type</mat-label>
-                                        <mat-select required formControlName="billingType">
+                                        <mat-select required formControlName="billType">
                                             <mat-option *ngFor="let billing_type of billing_types"
                                                 [value]="billing_type.code">
                                                 {{billing_type.description}}
                                             </mat-option>
                                         </mat-select>
                                         <mat-error
-                                            *ngIf="customerForm.get('customerDetail').get('billingType').hasError('required')">
+                                            *ngIf="customerForm.get('customerDetail').get('billType').hasError('required')">
                                             You must enter a value</mat-error>
                                     </mat-form-field>
                                     <mat-form-field appearance="outline">
@@ -226,8 +226,10 @@
                             <button mat-raised-button class="btn-100" (click)="cancel()">Cancel</button>
                         </div>
                         <div class="ui-g-12 ui-md-6 ui-lg-1">
-                            <button mat-raised-button color="primary" class="btn-100" (click)="save()"
-                                [disabled]="!customerForm.valid">Save</button>
+                            <button mat-raised-button color="primary" class="btn-100" *ngIf="!updateMode"
+                                (click)="save()" [disabled]="!customerForm.valid">Save</button>
+                            <button mat-raised-button color="primary" class="btn-100" *ngIf="updateMode"
+                                (click)="update()" [disabled]="!customerForm.valid">Update</button>
                         </div>
                     </div>
                 </div>

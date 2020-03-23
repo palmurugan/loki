@@ -3,6 +3,7 @@ customer-service/customer-service-dto/target/
 customer-service/customer-service-impl/target/
 customer-service/customer-service.iml
 customer-service/.idea/
+customer-service/ignite/
 
 configuration-service/configuration-service-core/target/
 configuration-service/configuration-service-dto/target/
@@ -32,6 +33,12 @@ invoice-service/invoice-service-dto/invoice-service-dto.iml
 loki-bms/target/
 
 loki-ui/package-lock.json
+
+.DS_Store
+loki-bms/.DS_Store
+loki-bms/src/.DS_Store
+loki-bms/src/main/.DS_Store
+loki-bms/**/**/.DS_Store
 
 # Compiled class file
 *.class

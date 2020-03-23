@@ -32,7 +32,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   loadData() {
-    this.customerService.getAllCustomers().subscribe(data => {
+    this.customerService.getAllCustomers(this.pageIndex, this.pageSize).subscribe(data => {
       this.setPagination(data['totalElements'], data['number'], data['size']);
       this.dataSource = new MatTableDataSource(data['content']);
     })
@@ -50,7 +50,7 @@ export class CustomerListComponent implements OnInit {
     this.loadData();
   }
 
-  onDelete(): void {
+  onDelete(customerId: number): void {
     const message = 'Are you sure you want to delete?';
 
     const dialogData = new ConfirmDialogModel("Delete Customer", message);
@@ -61,7 +61,12 @@ export class CustomerListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(dialogResult => {
-      this.delete = dialogResult;
+      if (dialogResult) {
+        this.customerService.deleteCustomer(customerId).subscribe(result => {
+          /* Refresh Grid after delete */
+          this.loadData();
+        });
+      }
     });
   }
 }

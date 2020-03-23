@@ -36,7 +36,15 @@ public class InvoiceLineCacheDTO {
     @QuerySqlField(index = true)
     private String description;
 
-    private BigDecimal total;
+    private BigDecimal CGST;
+
+    private BigDecimal SGST;
+
+    private BigDecimal IGST;
+
+    private BigDecimal originalPrice;
+
+    private BigDecimal netPrice;
 
     public Long getId() {
         return id;
@@ -110,11 +118,43 @@ public class InvoiceLineCacheDTO {
         this.invoiceId = invoiceId;
     }
 
-    public BigDecimal getTotal() {
-        return total;
+    public BigDecimal getCGST() {
+        return CGST;
     }
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
+    public void setCGST(BigDecimal CGST) {
+        this.CGST = CGST;
+    }
+
+    public BigDecimal getSGST() {
+        return SGST;
+    }
+
+    public void setSGST(BigDecimal SGST) {
+        this.SGST = SGST;
+    }
+
+    public BigDecimal getIGST() {
+        return IGST;
+    }
+
+    public void setIGST(BigDecimal IGST) {
+        this.IGST = IGST;
+    }
+
+    public BigDecimal getOriginalPrice() {
+        return originalPrice;
+    }
+
+    public void setOriginalPrice(BigDecimal originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+
+    public BigDecimal getNetPrice() {
+        return netPrice;
+    }
+
+    public void setNetPrice(BigDecimal netPrice) {
+        this.netPrice = netPrice;
     }
 }

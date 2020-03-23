@@ -37,7 +37,7 @@
                             <a [routerLink]="['/customer',element['id']]">
                                 <mat-icon style="cursor: pointer">edit</mat-icon>
                             </a> &nbsp;
-                            <mat-icon style="cursor: pointer" (click)="onDelete()">delete</mat-icon>
+                            <mat-icon style="cursor: pointer" (click)="onDelete(element['id'])">delete</mat-icon>
                         </div>
                         <div *ngIf="column !== 'action'">{{element[column]}}</div>
                     </td>
